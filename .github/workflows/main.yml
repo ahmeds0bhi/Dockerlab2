@@ -1,16 +1,4 @@
-
-TODAY
-.
-3:16 pm
-docker build . -t php_application
-3:17 pm
-docker run php_app
-3:18 pm
-docker run php_application
-3:19 pm
-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
-3:37 pm
-name: ITO OS Web application
+name: ITO Docker lab 2 application
 
 on:
   push:
