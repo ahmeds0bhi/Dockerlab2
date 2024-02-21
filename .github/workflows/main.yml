@@ -1,0 +1,51 @@
+
+TODAY
+.
+3:16 pm
+docker build . -t php_application
+3:17 pm
+docker run php_app
+3:18 pm
+docker run php_application
+3:19 pm
+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
+3:37 pm
+name: ITO OS Web application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+  deliverit:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+      
+    - name: build docker image and push to hub
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with: 
+          image: ahmeds0bhi/dockerlab2
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: "${{ secrets.REPO_USERNAME }}"
+          password: "${{ secrets.REPO_PASSWORD }}"
+          tags: latest
+3:43 pm
+
+
